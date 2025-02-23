@@ -32,10 +32,8 @@ List<double> calculateEmission(String fuelId, double value) {
   double avin = fuelStorage[fuelId]!['avin']!;
   double ar = fuelStorage[fuelId]!['ar']!;
   double gvin = fuelStorage[fuelId]!['gvin']!;
-
   double ktv = (1e6 / qri) * avin * (ar / (100 - gvin)) * (1 - 0.985);
   double etv = 1e-6 * ktv * qri * value;
-
   return [ktv, etv].map((e) => double.parse(e.toStringAsFixed(2))).toList();
 }
 
